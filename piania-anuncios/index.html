@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>PianIA - Panel de anuncios (ADMIN)</title>
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%8E%B9%3C/text%3E%3C/svg%3E" />
+    <link rel="stylesheet" href="./styles.css" />
+    <!--
+      Para iniciar esta web: python -m http.server 5173
+      jwt token: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c3VhcmlvTm9ybWFsQGdtYWlsLmNvbSIsInJvbGUiOiJBRE1JTiIsImlzcyI6InBpYW5pYS1hdXRoLXNlcnZpY2UiLCJhdWQiOiJwaWFuaWEtc2VydmljZXMiLCJpYXQiOjE3Nzg4MDEyNjQsImV4cCI6MTc3ODgwMjE2NH0.VB-PhJqA4Hn_6gB0519Ek39IxoqwOP01-gqg65dF-FY
+      -->
+  </head>
+  <body>
+    <header class="header">
+      <div class="header__title">
+        <h1>PianIA - Panel de anuncios</h1>
+        <p class="muted">Usa un JWT de un usuario con rol <strong>ADMIN</strong> para crear o desactivar anuncios.</p>
+      </div>
+      <div class="header__env">
+        <label class="field">
+          <span>Base URL (API Gateway)</span>
+          <input id="baseUrl" type="text" placeholder="http://localhost:8080" />
+        </label>
+        <label class="field">
+          <span>JWT (Bearer)</span>
+          <input id="jwt" type="password" placeholder="Pega aquí el token (sin 'Bearer ')" />
+        </label>
+        <div class="row">
+          <button id="btnSave" class="btn">Guardar</button>
+          <button id="btnLoad" class="btn btn--secondary">Cargar anuncios</button>
+        </div>
+      </div>
+    </header>
+
+    <main class="container">
+      <section class="card">
+        <h2>Crear anuncio</h2>
+        <div class="grid">
+          <label class="field">
+            <span>Título</span>
+            <input id="title" type="text" maxlength="120" placeholder="Ej: Actualización v1.2" />
+          </label>
+          <label class="field">
+            <span>Caduca (opcional)</span>
+            <input id="expiresAt" type="datetime-local" />
+            <small class="muted">Se envía como ISO-8601 (ej: 2026-05-14T20:30:00)</small>
+          </label>
+          <label class="field field--full">
+            <span>Mensaje (texto plano)</span>
+            <textarea id="message" rows="5" placeholder="Escribe el mensaje..."></textarea>
+            <small class="muted">
+              El backend actual guarda <strong>texto plano</strong>. Negritas/colores/imágenes requerirían cambios en backend + renderizado.
+            </small>
+          </label>
+        </div>
+        <div class="row">
+          <button id="btnCreate" class="btn btn--primary">Crear</button>
+          <button id="btnClear" class="btn btn--secondary">Limpiar</button>
+        </div>
+        <pre id="createResult" class="result" aria-live="polite"></pre>
+      </section>
+
+      <section class="card">
+        <div class="row row--space">
+          <h2>Anuncios activos</h2>
+          <div class="row">
+            <label class="field field--inline">
+              <span>Page size</span>
+              <input id="pageSize" type="number" min="1" max="200" value="50" />
+            </label>
+            <button id="btnRefresh" class="btn btn--secondary">Refrescar</button>
+          </div>
+        </div>
+
+        <div id="list" class="list"></div>
+        <pre id="listResult" class="result" aria-live="polite"></pre>
+      </section>
+
+      <section class="card">
+        <h2>Notas</h2>
+        <ul class="muted">
+          <li>Endpoint creación: <code>POST /piania/core/announcements</code> (requiere ADMIN).</li>
+          <li>Endpoint listado: <code>GET /piania/core/announcements?page=0&size=N</code>.</li>
+          <li>Endpoint desactivar: <code>DELETE /piania/core/announcements/{id}</code> (requiere ADMIN).</li>
+        </ul>
+      </section>
+    </main>
+
+    <footer class="footer muted">
+      <span>Panel local (HTML/CSS/JS) - no guarda el token en servidor, solo en tu navegador (localStorage).</span>
+    </footer>
+
+    <script src="./app.js"></script>
+  </body>
+</html>
