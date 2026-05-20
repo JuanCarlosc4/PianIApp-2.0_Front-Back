@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+
+<application
+        android:localeConfig="@xml/locales_config"
+        android:name=".PianiaApplication"
+        android:allowBackup="true"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:usesCleartextTraffic="true"
+
+        android:theme="@style/Theme.Piania"
+
+        tools:targetApi="31">
+
+        <meta-data
+            android:name="com.google.android.gms.ads.APPLICATION_ID"
+            android:value="ca-app-pub-3940256099942544~3347511713"/>
+            <!--AÑADIR EL ID REAL SÓLO SI SE TIENE YA PUBLICADO EN GOOGLE ADS-->
+            <!--android:value="ca-app-pub-3940256099942544~3347511713"/>-->
+
+
+        <!-- Nuevo host unificado (Home: Menu + Partituras + Announcements) -->
+        <activity
+            android:name=".ui.main.MainActivity"
+            android:exported="false" />
+
+        <activity
+            android:name=".ui.teacher.TeacherAreaActivity"
+            android:exported="false" />
+
+        <activity android:name=".ui.partituras.RegistroPartituraActivity" />
+
+        <activity
+            android:name=".ui.partituras.DetallePartituraActivity"
+            android:exported="false" />
+
+        <activity
+            android:name=".ui.splash.SplashActivity"
+            android:exported="true"
+            android:theme="@style/Theme.Piania">
+
+            <!-- Launcher -->
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+
+            <!-- Deep link: piania://class-invite/{token} -->
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data
+                    android:scheme="piania"
+                    android:host="class-invite" />
+            </intent-filter>
+        </activity>
+
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="${applicationId}.provider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths"/>
+        </provider>
+
+        <activity
+            android:name=".ui.auth.AuthActivity"
+            android:exported="false" />
+
+    </application>
+
+</manifest>

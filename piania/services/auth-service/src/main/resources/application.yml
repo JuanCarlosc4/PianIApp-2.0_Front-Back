@@ -1,0 +1,24 @@
+server:
+  port: 8081
+
+spring:
+  datasource:
+    url: ${DB_URL}
+    username: ${DB_USER}
+    password: ${DB_PASSWORD}
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+
+jwt:
+  # Must be >= 256 bits for HS256 (RFC7518). Keep it long enough.
+  secret: ${JWT_SECRET:kqwnkjef2109WJBQ_R32ILTWÑQ2NA3H13U209wqke_riw3UR3r-r2nklsfd,mwqqn3roijd}
+  issuer: ${JWT_ISSUER:piania-auth-service}
+  audience: ${JWT_AUDIENCE:piania-services}
+  access:
+    expiration: 900000
+  refresh:
+    expiration: 604800000

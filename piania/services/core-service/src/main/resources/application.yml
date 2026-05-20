@@ -1,0 +1,30 @@
+server:
+  port: 8082
+
+spring:
+  servlet:
+    multipart:
+      max-file-size: 50MB
+      max-request-size: 50MB
+  datasource:
+    url: ${DB_URL}
+    username: ${DB_USER}
+    password: ${DB_PASSWORD}
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+  jackson:
+    serialization:
+      write-dates-as-timestamps: false
+
+jwt:
+  secret: my-super-secret-key-my-super-secret-key-my-super-secret-key-123456789
+  access:
+    expiration: 900000
+  refresh:
+    expiration: 604800000
+
+piania:
+  chat:
+    master-key: ${PIANIA_CHAT_MASTER_KEY:}

@@ -1,0 +1,118 @@
+services:
+
+  mysql-auth:
+    image: mysql:8
+    container_name: mysql-auth
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: piania_auth
+    ports:
+      - "3307:3306"
+    volumes:
+      - mysql_auth_data:/var/lib/mysql
+    healthcheck:
+      # mysqladmin ping needs credentials when root auth requires password.
+      test: ["CMD-SHELL", "mysqladmin ping -h localhost -uroot -p$$MYSQL_ROOT_PASSWORD || exit 1"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+  mysql-core:
+    image: mysql:8
+    container_name: mysql-core
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: piania_core
+    ports:
+      - "3308:3306"
+    volumes:
+      - mysql_core_data:/var/lib/mysql
+    healthcheck:
+      # mysqladmin ping needs credentials when root auth requires password.
+      test: ["CMD-SHELL", "mysqladmin ping -h localhost -uroot -p$$MYSQL_ROOT_PASSWORD || exit 1"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+  redis:
+    image: redis:7
+    container_name: redis
+    ports:
+      - "6379:6379"
+
+  auth-service:
+    build: ../services/auth-service
+    container_name: auth-service
+    ports:
+      - "8082:8081"
+    depends_on:
+      mysql-auth:
+        condition: service_healthy
+    environment:
+      DB_URL: jdbc:mysql://mysql-auth:3306/piania_auth
+      DB_USER: root
+      DB_PASSWORD: root
+      JWT_SECRET: kqwnkjef2109WJBQ_R32ILTWÑQ2NA3H13U209wqke_riw3UR3r-r2nklsfd,mwqqn3roijd
+      JWT_ISSUER: piania-auth-service
+      JWT_AUDIENCE: piania-services
+
+  core-service:
+    build: ../services/core-service
+    container_name: core-service
+    ports:
+      - "8083:8082"
+    volumes:
+      - ../uploads:/app/uploads
+    depends_on:
+      mysql-core:
+        condition: service_healthy
+    environment:
+      DB_URL: jdbc:mysql://mysql-core:3306/piania_core
+      DB_USER: root
+      DB_PASSWORD: root
+      PIANIA_UPLOADS_DIR: /app/uploads
+      PIANIA_CHAT_MASTER_KEY: kqwnkjef2109WJBQ_R32ILTWÑQ2NA3H13U209wqke_riw3UR3r-r2nklsfd,mwqqn3roijd
+      JWT_SECRET: kqwnkjef2109WJBQ_R32ILTWÑQ2NA3H13U209wqke_riw3UR3r-r2nklsfd,mwqqn3roijd
+      JWT_ISSUER: piania-auth-service
+      JWT_AUDIENCE: piania-services
+
+  omr-service:
+    build: ../services/omr-service
+    container_name: omr-service
+    ports:
+      - "8000:8000"
+
+  api-gateway:
+    build: ../services/api-gateway
+    container_name: api-gateway
+    ports:
+      - "8090:8080"
+    depends_on:
+      - redis
+      - auth-service
+      - core-service
+    environment:
+      JWT_SECRET: kqwnkjef2109WJBQ_R32ILTWÑQ2NA3H13U209wqke_riw3UR3r-r2nklsfd,mwqqn3roijd
+      JWT_ISSUER: piania-auth-service
+      JWT_AUDIENCE: piania-services
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin:latest
+    container_name: phpmyadmin
+    ports:
+      - "8084:80"
+    environment:
+      PMA_HOSTS: mysql-auth,mysql-core
+      PMA_PORTS: 3306,3306
+      PMA_USER: root
+      PMA_PASSWORD: root
+      UPLOAD_LIMIT: 256M
+    depends_on:
+      mysql-auth:
+        condition: service_healthy
+      mysql-core:
+        condition: service_healthy
+
+volumes:
+  mysql_auth_data:
+  mysql_core_data:

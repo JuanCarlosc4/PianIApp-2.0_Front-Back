@@ -1,0 +1,247 @@
+<resources>
+
+    <!-- ================= AUTH ================= -->
+    <string name="tab_login">Login</string>
+    <string name="tab_register">Register</string>
+    <string name="register_success_login">Registration successful. Please log in.</string>
+    <string name="welcome">Welcome</string>
+    <string name="auth_error">Authentication error</string>
+    <string name="error_prefix">Error: %1$s</string>
+    <string name="iniciar_sesion">Login</string>
+    <string name="correo_electronico">Email</string>
+    <string name="contrasenya">Password</string>
+    <string name="entrar">Enter</string>
+    <string name="create_account">Create account</string>
+    <string name="full_name">Full name</string>
+    <string name="account_type">Account type</string>
+    <string name="account_type_user_title">User</string>
+    <string name="account_type_user_desc">Standard account</string>
+    <string name="account_type_student_title">Student</string>
+    <string name="account_type_student_desc">Student linked to teacher</string>
+    <string name="account_type_teacher_title">Teacher</string>
+    <string name="account_type_teacher_desc">Manage classes and students</string>
+    <string name="register">Register</string>
+    <string name="back_to_login">Back to login</string>
+
+    <!-- ================= GENERAL ================= -->
+    <string name="add">Add</string>
+    <string name="back">Back</string>
+    <string name="cancel">Cancel</string>
+    <string name="close">Close</string>
+    <string name="save">Save</string>
+    <string name="delete">Delete</string>
+    <string name="edit">Edit</string>
+    <string name="refresh">Refresh</string>
+    <string name="retry">Retry</string>
+    <string name="settings">Settings</string>
+    <string name="language">Language</string>
+    <string name="spanish">Spanish</string>
+    <string name="english">English</string>
+    <string name="dark_mode">Dark mode</string>
+    <string name="notifications">Notifications</string>
+    <string name="logout">Logout</string>
+    <string name="avatar">Avatar</string>
+    <string name="save_avatar">Save avatar</string>
+
+    <!-- ================= CHAT ================= -->
+    <string name="error_loading_chat">Error loading chat</string>
+    <string name="error_sending_message">Error sending message</string>
+    <string name="error_pinning_message">Error pinning message</string>
+    <string name="error_unpinning_message">Error unpinning message</string>
+    <string name="error_deleting_message">Error deleting message</string>
+    <string name="error_class_not_selected">No class selected</string>
+    <string name="message_placeholder">Write a message...</string>
+    <string name="send_description">Send message</string>
+    <string name="unread_messages">Unread messages</string>
+    <string name="pin">Pin</string>
+    <string name="unpin">Unpin</string>
+
+    <!-- ================= CLASSES ================= -->
+    <string name="classes">Classes</string>
+    <string name="my_classes">My classes</string>
+    <string name="open_chat">Open chat</string>
+    <string name="no_class_selected">No class selected</string>
+    <string name="no_students_in_class">No students in this class</string>
+    <string name="student">Student</string>
+    <string name="student_email">Student email</string>
+    <string name="add_student">Add student</string>
+    <string name="remove">Remove</string>
+    <string name="class_name">Class name</string>
+    <string name="create_class">Create class</string>
+    <string name="edit_class">Edit class</string>
+
+    <!-- ================= SHEET MUSIC ================= -->
+    <string name="my_sheet_music">My sheet music</string>
+    <string name="sheet_music">Sheet music</string>
+    <string name="sheet_music_saved">Sheet music saved to your library: %1$s</string>
+    <string name="error_saving_sheet_music">Could not save sheet music</string>
+    <string name="untitled">Untitled</string>
+    <string name="register_sheet_music_title">Register sheet music</string>
+    <string name="upload_file">Upload file</string>
+    <string name="take_photo">Take photo</string>
+    <string name="subir_partitura">Upload sheet music</string>
+    <string name="ning_n_archivo_seleccionado">No file selected</string>
+    <string name="processing">Processing...</string>
+    <string name="uploading">Uploading...</string>
+    <string name="processing_sheet_music">Processing sheet music...</string>
+    <string name="sheet_music_processed">Sheet music processed successfully</string>
+    <string name="error_could_not_process_file">Could not process file</string>
+    <string name="photo_processed_ok">Image processed successfully</string>
+
+    <!-- ================= LEGACY ITEM PARTITURA ================= -->
+    <string name="cono_de_partitura">Sheet music icon</string>
+    <string name="sonata_claro_de_luna">Moonlight Sonata</string>
+    <string name="dificultad_sin_revisar">Difficulty: not reviewed</string>
+    <string name="photo_processed_error">Error processing image</string>
+    <string name="photo_not_taken">No photo taken</string>
+
+    <!-- ================= PRACTICES ================= -->
+    <string name="practices">Practices</string>
+    <string name="play_action">Play</string>
+    <string name="pause_action">Pause</string>
+    <string name="stop_action">Stop</string>
+    <string name="loading_audio">Loading audio...</string>
+    <string name="feedback">Feedback</string>
+    <string name="student_notes">Student notes</string>
+    <string name="teacher_corrections">Teacher corrections</string>
+    <string name="recording">Recording...</string>
+    <string name="start_recording">Start recording</string>
+    <string name="repeat">Repeat</string>
+    <string name="get_feedback">Get feedback</string>
+    <string name="view_details">View details</string>
+    <string name="results">Results</string>
+    <string name="accept">Accept</string>
+
+    <!-- ================= ANNOUNCEMENTS ================= -->
+    <string name="announcements_title">Announcements</string>
+    <string name="no_announcements">No announcements</string>
+    <string name="deactivate">Deactivate</string>
+
+    <!-- ================= SETTINGS ================= -->
+    <string name="app_volume">App volume</string>
+    <string name="default_tempo">Default tempo</string>
+    <string name="metronome_enabled">Metronome enabled</string>
+    <string name="save_settings">Save settings</string>
+
+    <!-- ================= MISC ================= -->
+    <string name="piania_title">PianIA</string>
+    <string name="welcome_pianist">Welcome pianist</string>
+    <string name="group_info">Group info</string>
+    <string name="group_avatar_description">Group avatar</string>
+    <string name="accept_invitation">Accept invitation</string>
+    <string name="link_with_teacher">Link with teacher</string>
+    <string name="link_with_teacher_action">Link</string>
+    <string name="link_with_teacher_title">Link with teacher</string>
+    <string name="link_with_teacher_instructions">Enter teacher email</string>
+    <string name="teacher_email">Teacher email</string>
+
+    <!-- ================= FORMATS & ANALYSIS ================= -->
+    <string name="score_format">Score: %1$s</string>
+    <string name="note_errors_format">Note errors: %1$s</string>
+    <string name="rhythm_errors_format">Rhythm errors: %1$s</string>
+    <string name="comments_format">Comments: %1$s</string>
+    <string name="bpm_format">%1$d BPM</string>
+    <string name="duration_format">Duration: %1$d s</string>
+    <string name="date_format">Date: %1$s</string>
+    <string name="audio_url_format">Audio: %1$s</string>
+    <string name="session_id_format">Session #%1$s</string>
+    <string name="session_detail_format">Session detail #%1$s</string>
+    <string name="group_created_format">Group created on %1$s</string>
+    <string name="sent_sheet_music_prefix">Shared a sheet music:</string>
+    <string name="active_format">Active: %1$s</string>
+    <string name="ready_to_upload_format">File ready: %1$s</string>
+    <string name="notification_channel_name">Sheet uploads</string>
+    <string name="notification_channel_description">Notifications when a sheet music is uploaded</string>
+    <string name="notification_title_uploaded">Sheet music uploaded</string>
+    <string name="notification_text_uploaded_generic">Your sheet music was uploaded successfully</string>
+    <string name="notification_text_uploaded_format">Sheet music %1$s uploaded successfully</string>
+
+    <!-- ================= EXTRA UI ================= -->
+    <string name="tap_to_see_info">Tap to see info</string>
+    <string name="announcements_desc">Check latest announcements</string>
+    <string name="new_announcements_desc">You have new announcements</string>
+    <string name="teacher_classes_desc">Manage your classes</string>
+    <string name="student_classes_desc">View your classes</string>
+    <string name="teacher_area_desc">Teacher control panel</string>
+    <string name="teacher_area_title">Teacher Area</string>
+    <string name="teacher_area_classes_desc">Manage teacher classes</string>
+    <string name="students_of_class_format">Students of %1$s</string>
+    <string name="t_tulo_de_la_obra">Title of the piece</string>
+    <string name="error_create_image_file">Could not create image file</string>
+    <string name="manage_cookies">Manage cookies</string>
+    <string name="close_menu">Close menu</string>
+    <string name="view_and_play_songs">View and practice your sheet music</string>
+    <string name="link_with_teacher_desc">Link with your teacher</string>
+    <string name="students">Students</string>
+    <string name="invite_student_generate_link">Generate invitation link</string>
+    <string name="audio_not_found">Audio not found</string>
+    <string name="audio_ready_send">Audio ready to send</string>
+    <string name="mic_permission_needed">Microphone permission required</string>
+    <string name="load_error">Error loading data</string>
+    <string name="evaluating_performance">Evaluating performance...</string>
+    <string name="performance_analysis">Performance analysis</string>
+    <string name="just_analyzed">Just analyzed</string>
+    <string name="key_signature">Key signature</string>
+    <string name="time_signature">Time signature</string>
+    <string name="detected_tempo">Detected tempo</string>
+    <string name="estimated_difficulty">Estimated difficulty</string>
+    <string name="reading_mode">Reading mode</string>
+    <string name="recording_mode">Recording mode</string>
+    <string name="analysis_mode">Analysis mode</string>
+    <string name="share">Share</string>
+    <string name="user_label">User</string>
+    <string name="save_sheet_music">Save sheet music</string>
+    <string name="saving_sheet_music">Saving sheet music...</string>
+    <string name="logo_piania">PianIA logo</string>
+
+    <!-- ================= VIEWMODEL & ERRORS ================= -->
+    <string name="error_loading_announcements">Error loading announcements</string>
+    <string name="announcement_deactivated">Announcement deactivated</string>
+    <string name="error_deactivating_announcement">Error deactivating announcement</string>
+    <string name="class_invitation_title">Class invitation</string>
+    <string name="email_required">Email required</string>
+    <string name="error_link_teacher">Could not link with teacher</string>
+    <string name="error_loading_classes">Error loading classes</string>
+    <string name="share_invitation_link">Share invitation link</string>
+    <string name="error_creating_invitation">Error creating invitation</string>
+    <string name="teachers">Teachers</string>
+    <string name="error_creating_class">Error creating class</string>
+    <string name="error_deleting_class">Error deleting class</string>
+    <string name="error_updating_class">Error updating class</string>
+    <string name="error_loading_class_students">Error loading class students</string>
+    <string name="error_adding_student">Error adding student</string>
+    <string name="error_removing_student">Error removing student</string>
+    <string name="error_loading_links">Error loading links</string>
+    <string name="error_creating_link">Error creating link</string>
+    <string name="error_revoking_link">Error revoking link</string>
+    <string name="error_adding_permission">Error adding permission</string>
+    <string name="error_loading_my_students">Error loading my students</string>
+    <string name="select_class_to_share">Select the class to share it</string>
+    <string name="no_file_selected">No file selected</string>
+    <string name="title_required">Title is required</string>
+    <string name="unknown_error">Unknown error</string>
+    <string name="timeout_processing_sheet">Timeout processing sheet music</string>
+    <string name="error_loading_practices">Error loading practices</string>
+    <string name="error_loading_practice">Error loading practice</string>
+    <string name="error_saving_changes">Could not save changes</string>
+    <string name="error_no_file_selected">No file selected</string>
+    <string name="error_title_required">Title is required</string>
+    <string name="error_unknown">Unknown error</string>
+    <string name="error_preparing_upload">Error preparing upload</string>
+    <string name="error_processing_timeout">Timeout processing sheet music</string>
+    <string name="error_saving">Could not save</string>
+    <string name="error_preparing_audio">Error preparing audio</string>
+    <string name="error_playing_audio">Error playing audio</string>
+    <string name="error_pausing_audio">Error pausing audio</string>
+    <string name="error_stopping_audio">Error stopping audio</string>
+    <string name="error_importing_sheet">Could not import sheet music</string>
+    <string name="error_creating_share_link">Could not create share link</string>
+    <string name="network_error_saving_practice">Network error saving practice</string>
+    <string name="network_error_register">Network error registering</string>
+    <string name="network_error_profile">Network error loading profile</string>
+    <string name="network_error_avatar">Network error updating avatar</string>
+    <string name="server_error_format">Server error (%1$s)</string>
+    <string name="app_name">PianIApp</string>
+    <string name="correo_valido">Insert a valid email</string>
+
+</resources>

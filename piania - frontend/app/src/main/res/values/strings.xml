@@ -1,0 +1,247 @@
+<resources>
+
+    <!-- ================= AUTH ================= -->
+    <string name="tab_login">Iniciar sesión</string>
+    <string name="tab_register">Registrarse</string>
+    <string name="register_success_login">Registro completado. Inicia sesión.</string>
+    <string name="welcome">Bienvenido</string>
+    <string name="auth_error">Error de autenticación</string>
+    <string name="error_prefix">Error: %1$s</string>
+    <string name="iniciar_sesion">Iniciar sesión</string>
+    <string name="correo_electronico">Correo electrónico</string>
+    <string name="contrasenya">Contraseña</string>
+    <string name="entrar">Entrar</string>
+    <string name="create_account">Crear cuenta</string>
+    <string name="full_name">Nombre completo</string>
+    <string name="account_type">Tipo de cuenta</string>
+    <string name="account_type_user_title">Usuario</string>
+    <string name="account_type_user_desc">Cuenta estándar</string>
+    <string name="account_type_student_title">Alumno</string>
+    <string name="account_type_student_desc">Alumno vinculado a profesor</string>
+    <string name="account_type_teacher_title">Profesor</string>
+    <string name="account_type_teacher_desc">Gestiona clases y alumnos</string>
+    <string name="register">Registrarse</string>
+    <string name="back_to_login">Volver al login</string>
+
+    <!-- ================= GENERAL ================= -->
+    <string name="add">Añadir</string>
+    <string name="back">Volver</string>
+    <string name="cancel">Cancelar</string>
+    <string name="close">Cerrar</string>
+    <string name="save">Guardar</string>
+    <string name="delete">Eliminar</string>
+    <string name="edit">Editar</string>
+    <string name="refresh">Actualizar</string>
+    <string name="retry">Reintentar</string>
+    <string name="settings">Ajustes</string>
+    <string name="language">Idioma</string>
+    <string name="spanish">Español</string>
+    <string name="english">Inglés</string>
+    <string name="dark_mode">Modo oscuro</string>
+    <string name="notifications">Notificaciones</string>
+    <string name="logout">Cerrar sesión</string>
+    <string name="avatar">Avatar</string>
+    <string name="save_avatar">Guardar avatar</string>
+
+    <!-- ================= CHAT ================= -->
+    <string name="error_loading_chat">Error cargando chat</string>
+    <string name="error_sending_message">Error enviando mensaje</string>
+    <string name="error_pinning_message">Error fijando mensaje</string>
+    <string name="error_unpinning_message">Error desfijando mensaje</string>
+    <string name="error_deleting_message">Error borrando mensaje</string>
+    <string name="error_class_not_selected">Clase no seleccionada</string>
+    <string name="message_placeholder">Escribe un mensaje...</string>
+    <string name="send_description">Enviar mensaje</string>
+    <string name="unread_messages">Mensajes sin leer</string>
+    <string name="pin">Fijar</string>
+    <string name="unpin">Desfijar</string>
+
+    <!-- ================= CLASSES ================= -->
+    <string name="classes">Clases</string>
+    <string name="my_classes">Mis clases</string>
+    <string name="open_chat">Abrir chat</string>
+    <string name="no_class_selected">No hay clase seleccionada</string>
+    <string name="no_students_in_class">No hay alumnos en la clase</string>
+    <string name="student">Alumno</string>
+    <string name="student_email">Email del alumno</string>
+    <string name="add_student">Añadir alumno</string>
+    <string name="remove">Eliminar</string>
+    <string name="class_name">Nombre de la clase</string>
+    <string name="create_class">Crear clase</string>
+    <string name="edit_class">Editar clase</string>
+
+    <!-- ================= SHEET MUSIC ================= -->
+    <string name="my_sheet_music">Mis partituras</string>
+    <string name="sheet_music">Partitura</string>
+    <string name="sheet_music_saved">Partitura guardada en tu biblioteca: %1$s</string>
+    <string name="error_saving_sheet_music">No se pudo guardar la partitura</string>
+    <string name="untitled">Sin título</string>
+    <string name="register_sheet_music_title">Registrar partitura</string>
+    <string name="upload_file">Subir archivo</string>
+    <string name="take_photo">Tomar foto</string>
+    <string name="subir_partitura">Subir partitura</string>
+    <string name="ning_n_archivo_seleccionado">Ningún archivo seleccionado</string>
+    <string name="processing">Procesando...</string>
+    <string name="uploading">Subiendo...</string>
+    <string name="processing_sheet_music">Procesando partitura...</string>
+    <string name="sheet_music_processed">Partitura procesada correctamente</string>
+    <string name="error_could_not_process_file">No se pudo procesar el archivo</string>
+    <string name="photo_processed_ok">Imagen procesada correctamente</string>
+
+    <!-- ================= LEGACY ITEM PARTITURA ================= -->
+    <string name="cono_de_partitura">Icono de partitura</string>
+    <string name="sonata_claro_de_luna">Sonata Claro de Luna</string>
+    <string name="dificultad_sin_revisar">Dificultad: sin revisar</string>
+    <string name="photo_processed_error">Error procesando imagen</string>
+    <string name="photo_not_taken">No se tomó ninguna foto</string>
+
+    <!-- ================= PRACTICES ================= -->
+    <string name="practices">Prácticas</string>
+    <string name="play_action">Reproducir</string>
+    <string name="pause_action">Pausar</string>
+    <string name="stop_action">Detener</string>
+    <string name="loading_audio">Cargando audio...</string>
+    <string name="feedback">Feedback</string>
+    <string name="student_notes">Notas del alumno</string>
+    <string name="teacher_corrections">Correcciones del profesor</string>
+    <string name="recording">Grabando...</string>
+    <string name="start_recording">Comenzar grabación</string>
+    <string name="repeat">Repetir</string>
+    <string name="get_feedback">Obtener feedback</string>
+    <string name="view_details">Ver detalles</string>
+    <string name="results">Resultados</string>
+    <string name="accept">Aceptar</string>
+
+    <!-- ================= ANNOUNCEMENTS ================= -->
+    <string name="announcements_title">Avisos</string>
+    <string name="no_announcements">No hay avisos</string>
+    <string name="deactivate">Desactivar</string>
+
+    <!-- ================= SETTINGS ================= -->
+    <string name="app_volume">Volumen de la app</string>
+    <string name="default_tempo">Tempo por defecto</string>
+    <string name="metronome_enabled">Metrónomo activado</string>
+    <string name="save_settings">Guardar ajustes</string>
+
+    <!-- ================= MISC ================= -->
+    <string name="piania_title">PianIA</string>
+    <string name="welcome_pianist">Bienvenido pianista</string>
+    <string name="group_info">Información del grupo</string>
+    <string name="group_avatar_description">Avatar del grupo</string>
+    <string name="accept_invitation">Aceptar invitación</string>
+    <string name="link_with_teacher">Vincular con profesor</string>
+    <string name="link_with_teacher_action">Vincular</string>
+    <string name="link_with_teacher_title">Vincular con profesor</string>
+    <string name="link_with_teacher_instructions">Introduce el email del profesor</string>
+    <string name="teacher_email">Email del profesor</string>
+
+    <!-- ================= FORMATS & ANALYSIS ================= -->
+    <string name="score_format">Puntuación: %1$s</string>
+    <string name="note_errors_format">Errores de nota: %1$s</string>
+    <string name="rhythm_errors_format">Errores de ritmo: %1$s</string>
+    <string name="comments_format">Comentarios: %1$s</string>
+    <string name="bpm_format">%1$d BPM</string>
+    <string name="duration_format">Duración: %1$d s</string>
+    <string name="date_format">Fecha: %1$s</string>
+    <string name="audio_url_format">Audio: %1$s</string>
+    <string name="session_id_format">Sesión #%1$s</string>
+    <string name="session_detail_format">Detalle de sesión #%1$s</string>
+    <string name="group_created_format">Grupo creado el %1$s</string>
+    <string name="sent_sheet_music_prefix">Ha compartido una partitura:</string>
+    <string name="active_format">Activo: %1$s</string>
+    <string name="ready_to_upload_format">Archivo listo: %1$s</string>
+    <string name="notification_channel_name">Subidas de partituras</string>
+    <string name="notification_channel_description">Notificaciones cuando se sube una partitura</string>
+    <string name="notification_title_uploaded">Partitura subida</string>
+    <string name="notification_text_uploaded_generic">Tu partitura se ha subido correctamente</string>
+    <string name="notification_text_uploaded_format">Partitura %1$s subida correctamente</string>
+
+    <!-- ================= EXTRA UI ================= -->
+    <string name="tap_to_see_info">Toca para ver información</string>
+    <string name="announcements_desc">Consulta los últimos avisos</string>
+    <string name="new_announcements_desc">Tienes nuevos avisos</string>
+    <string name="teacher_classes_desc">Gestiona tus clases</string>
+    <string name="student_classes_desc">Consulta tus clases</string>
+    <string name="teacher_area_desc">Panel de control del profesor</string>
+    <string name="teacher_area_title">Área del profesor</string>
+    <string name="teacher_area_classes_desc">Gestiona las clases del profesor</string>
+    <string name="students_of_class_format">Alumnos de %1$s</string>
+    <string name="t_tulo_de_la_obra">Título de la obra</string>
+    <string name="error_create_image_file">No se pudo crear el archivo de imagen</string>
+    <string name="manage_cookies">Gestionar cookies</string>
+    <string name="close_menu">Cerrar menú</string>
+    <string name="view_and_play_songs">Visualiza y practica tus partituras</string>
+    <string name="link_with_teacher_desc">Vincúlate con tu profesor</string>
+    <string name="students">Alumnos</string>
+    <string name="invite_student_generate_link">Generar enlace de invitación</string>
+    <string name="audio_not_found">Audio no encontrado</string>
+    <string name="audio_ready_send">Audio listo para enviar</string>
+    <string name="mic_permission_needed">Permiso de micrófono requerido</string>
+    <string name="load_error">Error cargando datos</string>
+    <string name="evaluating_performance">Evaluando interpretación...</string>
+    <string name="performance_analysis">Análisis de interpretación</string>
+    <string name="just_analyzed">Analizado recientemente</string>
+    <string name="key_signature">Tonalidad</string>
+    <string name="time_signature">Compás</string>
+    <string name="detected_tempo">Tempo detectado</string>
+    <string name="estimated_difficulty">Dificultad estimada</string>
+    <string name="reading_mode">Modo lectura</string>
+    <string name="recording_mode">Modo grabación</string>
+    <string name="analysis_mode">Modo análisis</string>
+    <string name="share">Compartir</string>
+    <string name="user_label">Usuario</string>
+    <string name="save_sheet_music">Guardar partitura</string>
+    <string name="saving_sheet_music">Guardando partitura...</string>
+    <string name="logo_piania">Logo PianIA</string>
+
+    <!-- ================= VIEWMODEL & ERRORS ================= -->
+    <string name="error_loading_announcements">Error cargando avisos</string>
+    <string name="announcement_deactivated">Anuncio desactivado</string>
+    <string name="error_deactivating_announcement">Error desactivando anuncio</string>
+    <string name="class_invitation_title">Invitación a clase</string>
+    <string name="email_required">Email requerido</string>
+    <string name="error_link_teacher">No se pudo enlazar con el profesor</string>
+    <string name="error_loading_classes">Error cargando clases</string>
+    <string name="share_invitation_link">Compartir enlace de invitación</string>
+    <string name="error_creating_invitation">Error creando invitación</string>
+    <string name="teachers">Profesores</string>
+    <string name="error_creating_class">Error creando clase</string>
+    <string name="error_deleting_class">Error borrando clase</string>
+    <string name="error_updating_class">Error actualizando clase</string>
+    <string name="error_loading_class_students">Error cargando alumnos de la clase</string>
+    <string name="error_adding_student">Error añadiendo alumno</string>
+    <string name="error_removing_student">Error eliminando alumno</string>
+    <string name="error_loading_links">Error cargando enlaces</string>
+    <string name="error_creating_link">Error creando enlace</string>
+    <string name="error_revoking_link">Error revocando enlace</string>
+    <string name="error_adding_permission">Error añadiendo permiso</string>
+    <string name="error_loading_my_students">Error cargando mis alumnos</string>
+    <string name="select_class_to_share">Selecciona la clase donde compartirla</string>
+    <string name="no_file_selected">No hay archivo seleccionado</string>
+    <string name="title_required">El título es obligatorio</string>
+    <string name="unknown_error">Error desconocido</string>
+    <string name="timeout_processing_sheet">Tiempo de espera agotado procesando la partitura</string>
+    <string name="error_loading_practices">Error cargando prácticas</string>
+    <string name="error_loading_practice">Error cargando práctica</string>
+    <string name="error_saving_changes">No se pudieron guardar los cambios</string>
+    <string name="error_no_file_selected">No hay archivo seleccionado</string>
+    <string name="error_title_required">El título es obligatorio</string>
+    <string name="error_unknown">Error desconocido</string>
+    <string name="error_preparing_upload">Error preparando la subida</string>
+    <string name="error_processing_timeout">Tiempo de espera agotado procesando la partitura</string>
+    <string name="error_saving">No se pudo guardar</string>
+    <string name="error_preparing_audio">Error preparando audio</string>
+    <string name="error_playing_audio">Error al reproducir</string>
+    <string name="error_pausing_audio">Error al pausar</string>
+    <string name="error_stopping_audio">Error al parar</string>
+    <string name="error_importing_sheet">No se pudo importar la partitura</string>
+    <string name="error_creating_share_link">No se pudo crear el enlace</string>
+    <string name="network_error_saving_practice">Error de red al guardar práctica</string>
+    <string name="network_error_register">Error de red al registrarse</string>
+    <string name="network_error_profile">Error de red al obtener perfil</string>
+    <string name="network_error_avatar">Error de red al actualizar avatar</string>
+    <string name="server_error_format">Error del servidor (%1$s)</string>
+    <string name="app_name">PianIApp</string>
+    <string name="correo_valido">Introduce un correo válido</string>
+
+</resources>

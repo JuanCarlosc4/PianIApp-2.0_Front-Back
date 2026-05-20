@@ -1,0 +1,85 @@
+spring:
+  main:
+    web-application-type: reactive
+
+  # Para permitir multipart grandes atravesando el gateway (evita errores por buffering en memoria).
+  codec:
+    max-in-memory-size: 50MB
+
+  autoconfigure:
+    exclude:
+      - org.springframework.boot.autoconfigure.security.reactive.ReactiveUserDetailsServiceAutoConfiguration
+
+  data:
+    redis:
+      host: redis
+      port: 6379
+
+  cloud:
+    gateway:
+      routes:
+        - id: auth-service
+          uri: http://auth-service:8081
+          order: -1
+          predicates:
+            - Path=/piania/auth/**
+
+        # Upload API handled by core-service (multipart). Client uses the gateway.
+        - id: core-service-upload-api
+          uri: http://core-service:8082
+          order: -1
+          predicates:
+            - Path=/piania/uploads
+
+        # Static files served by core-service local storage
+        - id: core-service-uploads
+          uri: http://core-service:8082
+          order: -1
+          predicates:
+            - Path=/uploads/**
+
+        # Legacy frontend compatibility endpoints handled by core-service
+        - id: core-service-legacy-feedback
+          uri: http://core-service:8082
+          order: 0
+          predicates:
+            - Path=/piania/feedback/**
+
+        - id: core-service-legacy-partituras
+          uri: http://core-service:8082
+          order: 0
+          predicates:
+            - Path=/piania/partituras/**
+
+        # Core "test" endpoints (sin rewrite)
+        - id: core-service-core-prefix
+          uri: http://core-service:8082
+          order: 0
+          predicates:
+            - Path=/piania/core/user,/piania/core/admin
+          filters:
+            - name: RequestRateLimiter
+              args:
+                redis-rate-limiter.replenishRate: 5
+                redis-rate-limiter.burstCapacity: 10
+
+        # Core API externa: /piania/core/**  -> core-service /piania/**
+        - id: core-service
+          uri: http://core-service:8082
+          order: 1
+          predicates:
+            - Path=/piania/core/**
+          filters:
+            - name: RewritePath
+              args:
+                regexp: /piania/core/(?<segment>.*)
+                replacement: /piania/$\{segment}
+            - name: RequestRateLimiter
+              args:
+                redis-rate-limiter.replenishRate: 5
+                redis-rate-limiter.burstCapacity: 10
+
+jwt:
+  secret: ${JWT_SECRET:kqwnkjef2109WJBQ_R32ILTWÑQ2NA3H13U209wqke_riw3UR3r-r2nklsfd,mwqqn3roijd}
+  issuer: ${JWT_ISSUER:piania-auth-service}
+  audience: ${JWT_AUDIENCE:piania-services}

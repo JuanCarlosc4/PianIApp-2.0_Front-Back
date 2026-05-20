@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>Visor AlphaTab</title>
+
+    <script src="https://cdn.jsdelivr.net/npm/@coderline/alphatab@latest/dist/alphaTab.min.js"></script>
+
+    <style>
+        html, body {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            overflow: hidden;
+            background: #fff;
+        }
+
+        #alphaTab {
+            height: 100vh;
+            width: 100vw;
+            overflow-y: auto;
+            overflow-x: hidden;
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        .at-cursor-bar {
+            background: rgba(255, 242, 0, 0.25);
+            border-left: 2px solid #ff0000;
+        }
+    </style>
+</head>
+<body>
+
+<div id="alphaTab"></div>
+
+<script>
+    let api = null;
+    let currentScale = 0.7;
+    let lastLoadedBytes = null;
+    let isPlaying = false;
+
+    function buildSettings() {
+        return {
+            core: {
+                engine: 'html5',
+                useWorkers: false
+            },
+            player: {
+                enablePlayer: true,
+                enableUserInteraction: true,
+                enableCursor: true,
+                soundFont: 'https://cdn.jsdelivr.net/npm/@coderline/alphatab@latest/dist/soundfont/sonivox.sf2'
+            },
+            display: {
+                layoutMode: 'page',
+                staveProfile: 'Score',
+                scale: currentScale,
+                stretchForce: 0.7,
+                resources: {
+                    font: 'https://cdn.jsdelivr.net/npm/@coderline/alphatab@latest/dist/font/Bravura.otf'
+                }
+            }
+        };
+    }
+
+    function initAlphaTab() {
+        const container = document.getElementById('alphaTab');
+        container.innerHTML = '';
+
+        api = new alphaTab.AlphaTabApi(container, buildSettings());
+
+        bindCursorFollow();
+        console.log("AlphaTab inicializado. Scale:", currentScale);
+    }
+
+    function bindCursorFollow() {
+        if (!api) return;
+
+        // Según versión, este evento puede variar.
+        // Esta aproximación intenta seguir el cursor visual.
+        api.playerPositionChanged.on(function() {
+            scrollToCursor();
+        });
+    }
+
+    function scrollToCursor() {
+        try {
+            const container = document.getElementById('alphaTab');
+
+            // Selectores típicos del cursor/barra activa
+            const cursor =
+                container.querySelector('.at-cursor-bar') ||
+                container.querySelector('.at-cursor-beat') ||
+                container.querySelector('.at-highlight');
+
+            if (!cursor) return;
+
+            const cursorRect = cursor.getBoundingClientRect();
+            const containerRect = container.getBoundingClientRect();
+
+            const cursorTop = cursorRect.top - containerRect.top + container.scrollTop;
+            const targetScroll = Math.max(0, cursorTop - container.clientHeight * 0.35);
+
+            container.scrollTo({
+                top: targetScroll,
+                behavior: 'smooth'
+            });
+        } catch (e) {
+            console.error("Error haciendo scroll al cursor:", e);
+        }
+    }
+
+    function cargarPartitura(xmlBase64) {
+        try {
+            const binaryString = window.atob(xmlBase64);
+            const len = binaryString.length;
+            const bytes = new Uint8Array(len);
+
+            for (let i = 0; i < len; i++) {
+                bytes[i] = binaryString.charCodeAt(i);
+            }
+
+            lastLoadedBytes = bytes;
+            api.load(bytes);
+
+            console.log("Partitura cargada");
+        } catch (err) {
+            console.error("Error cargando XML:", err);
+        }
+    }
+
+    function recargarPartitura() {
+        if (lastLoadedBytes && api) {
+            api.load(lastLoadedBytes);
+            console.log("Partitura recargada con scale:", currentScale);
+        }
+    }
+
+    function zoomIn() {
+        currentScale = Math.min(1.5, currentScale + 0.1);
+        reinicializarVisor();
+    }
+
+    function zoomOut() {
+        currentScale = Math.max(0.4, currentScale - 0.1);
+        reinicializarVisor();
+    }
+
+    function reinicializarVisor() {
+        const estabaReproduciendo = isPlaying;
+
+        try {
+            if (api) {
+                api.stop();
+            }
+        } catch (e) {
+            console.error("Error al parar antes de reinicializar:", e);
+        }
+
+        initAlphaTab();
+        recargarPartitura();
+
+        if (estabaReproduciendo) {
+            // Si quieres reanudar automáticamente, habría que hacerlo con más control.
+            // Por simplicidad, al cambiar zoom lo dejamos pausado.
+            isPlaying = false;
+        }
+    }
+
+    function play() {
+        if (!api) return;
+        api.playPause();
+        isPlaying = true;
+    }
+
+    function pause() {
+        if (!api) return;
+        api.pause();
+        isPlaying = false;
+    }
+
+    function stop() {
+        if (!api) return;
+        api.stop();
+        isPlaying = false;
+
+        const container = document.getElementById('alphaTab');
+        container.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    }
+
+    initAlphaTab();
+</script>
+</body>
+</html>

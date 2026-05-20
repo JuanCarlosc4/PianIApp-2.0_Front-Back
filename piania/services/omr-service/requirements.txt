@@ -1,0 +1,8 @@
+fastapi
+uvicorn
+music21
+basic-pitch
+python-multipart
+numpy==1.23.5
+scipy==1.10.1
+Pillow
